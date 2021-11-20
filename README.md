@@ -35,8 +35,7 @@ plugins=ifupdown,keyfile
 dns=default
 ```
 Этот параметр сообщит `NetworkManager`, что нет необходимости управлять содержимым файла `/etc/resolv.conf`
-Выполняем: `sudo systemctl restart NetworkManager`
-Редактируем `/etc/resolv.conf`:
+Выполняем: `sudo systemctl restart NetworkManager`. Редактируем `/etc/resolv.conf`:
 ```
 nameserver ip-контейнера
 ```
