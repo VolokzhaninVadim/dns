@@ -14,16 +14,15 @@ sudo systemctl enable NetworkManager
 
 ![DHCP Server](https://beebom.com/wp-content/uploads/2021/05/dScreenshot-2021-05-17-18.56.40.jpg)
 
-Закрепляем IPv4 адрес Raspberry Pi :
-IPv4 адрес Raspberry Pi :
+Закрепляем IPv4 адрес Raspberry Pi:
 
 ![IPv4](https://beebom.com/wp-content/uploads/2021/05/abc-1.jpg)
 
-Проставляем IPv4 адрес Raspberry Pi :
+Проставляем IPv4 адрес Raspberry Pi:
 
 ![IPv4](https://beebom.com/wp-content/uploads/2021/05/Screenshot-2021-05-17-18.56.58.jpg)
 
-## Настройка ПК
+## Настройка Raspberry Pi
 Открываем конфигурацию диспетчера сети:
 ```
 sudo nano /etc/NetworkManager/NetworkManager.conf
