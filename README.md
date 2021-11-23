@@ -63,4 +63,4 @@ dicker exec -it container_id bash
 # Устанавливаем пароль 
 pihole -a -p YOUR_PASSWORD
 ```
-1. Сканируем через [Connect for Pi-hole](https://play.google.com/store/apps/details?id=com.tien.piholeconnect&hl=ru) QRCode. 
+4. Сканируем через [Connect for Pi-hole](https://play.google.com/store/apps/details?id=com.tien.piholeconnect&hl=ru) QRCode. 
