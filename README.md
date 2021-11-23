@@ -48,3 +48,19 @@ nameserver ip-контейнера
 }
 ```
 После выполняем: `sudo service docker restart`
+
+## Смартфон 
+1. Устанавливаем [Connect for Pi-hole](https://play.google.com/store/apps/details?id=com.tien.piholeconnect&hl=ru). 
+1. Пробрасываем порты через роутер.   
+1. Выполняем: 
+```
+# Смотрим запущенный контейнеры 
+docker ps 
+
+# Заходим в контейнер 
+dicker exec -it container_id bash
+
+# Устанавливаем пароль 
+pihole -a -p YOUR_PASSWORD
+```
+1. Сканируем через [Connect for Pi-hole](https://play.google.com/store/apps/details?id=com.tien.piholeconnect&hl=ru) QRCode. 
