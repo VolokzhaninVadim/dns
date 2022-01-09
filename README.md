@@ -66,7 +66,7 @@ pihole -a -p YOUR_PASSWORD
 4. Сканируем через [Connect for Pi-hole](https://play.google.com/store/apps/details?id=com.tien.piholeconnect&hl=ru) QRCode. 
 
 ## Блокировка yotube рекламы 
-1. Берем список : 
+Берем список : 
 * https://github.com/kboghdady/youTube_ads_4_pi-hole.
 * https://github.com/nickspaargaren/no-google
 
