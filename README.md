@@ -22,7 +22,12 @@ sudo systemctl enable NetworkManager
 
 ![IPv4](https://beebom.com/wp-content/uploads/2021/05/Screenshot-2021-05-17-18.56.58.jpg)
 
-## Настройка Raspberry Pi
+## Настройка сервера
+Отключаем systemd-resolved
+```
+sudo systemctl stop systemd-resolved
+sudo systemctl disable systemd-resolved
+```
 Открываем конфигурацию диспетчера сети:
 ```
 sudo nano /etc/NetworkManager/NetworkManager.conf
