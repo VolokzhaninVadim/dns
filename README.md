@@ -42,7 +42,10 @@ dns=default
 Этот параметр сообщит `NetworkManager`, что нет необходимости управлять содержимым файла `/etc/resolv.conf`
 Выполняем: `sudo systemctl restart NetworkManager`. Редактируем `/etc/resolv.conf`:
 ```
-nameserver ip-контейнера
+# Бэкапируем resolv.conf
+sudo mv /etc/resolv.conf /etc/resolv.conf.bak
+# Перезапускаем network-manager
+sudo service network-manager restart
 ```
 
 ## Исправление ошибки `Temporary failure in name resolution [Errno -3]` with Docker
