@@ -10,11 +10,24 @@ services:
       - "67:67/udp"
       - "80:80/tcp"
     environment:
-      - TZ='Asia/Vladivostok'
+      - TZ='Europe/Moscow'
       - WEBPASSWORD=${PIHOLE_PASSWORD}
     volumes:
-      - './etc-pihole/:/etc/pihole/'
-      - './etc-dnsmasq.d/:/etc/dnsmasq.d/'  
+      - './config_pihole/etc-pihole/:/etc/pihole/'
+      - './config_pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/'  
     cap_add:
       - NET_ADMIN
+    restart: unless-stopped
+  duckdns:
+    image: lscr.io/linuxserver/duckdns:latest
+    container_name: duckdns
+    environment:
+      - PUID=1000 #optional
+      - PGID=1000 #optional
+      - TZ=Europe/Moscow
+      - SUBDOMAINS=${USER}
+      - TOKEN=${DNS_TOKEN}
+      - LOG_FILE=false l
+    volumes:
+      - ./config_dns/:/config/ 
     restart: unless-stopped
