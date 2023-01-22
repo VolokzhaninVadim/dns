@@ -49,13 +49,13 @@ Edit NetworkManager.conf:
 sudo nano /etc/NetworkManager/NetworkManager.conf
 ```
 
-Add `dns=default` в `[main]`:
+Add `dns=default` in `[main]`:
 ```
 [main]
 plugins=ifupdown,keyfile
 dns=default
 ```
-This parameter inform `NetworkManager` that not necessary manage `/etc/resolv.conf`: `sudo systemctl restart NetworkManager`. 
+This parameter inform `NetworkManager` that not necessary manage `/etc/resolv.conf`. After that: `sudo systemctl restart NetworkManager`. 
 
 Edit`/etc/resolv.conf`:
 ```
