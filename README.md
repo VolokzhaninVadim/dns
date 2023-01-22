@@ -85,4 +85,5 @@ After that: `sudo service docker restart`
 1. Register on [https://www.duckdns.org](https://www.duckdns.org). 
 2. Set variables on [docker-compose.yml](./docker-compose.yml).
 
+Check IP: [https://digwebinterface.com](https://digwebinterface.com).
 
