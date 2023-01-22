@@ -44,7 +44,7 @@ sudo systemctl stop systemd-resolved
 sudo systemctl disable systemd-resolved
 ```
 
-Edit NetworkManager.conf:
+Edit `NetworkManager.conf`:
 ```
 sudo nano /etc/NetworkManager/NetworkManager.conf
 ```
