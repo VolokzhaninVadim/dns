@@ -32,7 +32,7 @@ DHCP Server settings (TP-Link Archer A6):
 
 ![DHCP Server](https://beebom.com/wp-content/uploads/2021/05/dScreenshot-2021-05-17-18.56.40.jpg)
 
-Set IPv4 Raspberry Pi on router:
+Set IPv4 server with pihole on router:
 
 ![IPv4](https://beebom.com/wp-content/uploads/2021/05/abc-1.jpg)
 ![IPv4](https://beebom.com/wp-content/uploads/2021/05/Screenshot-2021-05-17-18.56.58.jpg)
