@@ -10,7 +10,7 @@ sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubun
 sudo apt-get update
 apt-cache policy docker-ce
 sudo apt-get -y install docker-ce
-# Add user in docker group, that do not launch docker with sudo 
+# Add user in docker group, that do not launch docker with sudo
 sudo usermod -aG docker ${USER}
 # Install docker-compose
 sudo apt install python3-pip
@@ -19,7 +19,7 @@ sudo pip3 install docker-compose
 
 # [PiHole](https://pi-hole.net/)
 ![PiHole](https://wp-cdn.pi-hole.net/wp-content/uploads/2016/12/Vortex-R.png)
-## Instasll additional soft: 
+## Instasll additional soft:
 ```
 # Instasll additional soft
 sudo apt-get install network-manager
@@ -27,8 +27,8 @@ sudo systemctl start NetworkManager
 sudo systemctl enable NetworkManager
 ```
 
-## Router 
-DHCP Server settings (TP-Link Archer A6): 
+## Router
+DHCP Server settings (TP-Link Archer A6):
 
 ![DHCP Server](https://beebom.com/wp-content/uploads/2021/05/dScreenshot-2021-05-17-18.56.40.jpg)
 
@@ -37,7 +37,7 @@ Set IPv4 server with pihole on router:
 ![IPv4](https://beebom.com/wp-content/uploads/2021/05/abc-1.jpg)
 ![IPv4](https://beebom.com/wp-content/uploads/2021/05/Screenshot-2021-05-17-18.56.58.jpg)
 
-## Server settings 
+## Server settings
 Switch off systemd-resolved:
 ```
 sudo systemctl stop systemd-resolved
@@ -55,7 +55,7 @@ Add `dns=default` in `[main]`:
 plugins=ifupdown,keyfile
 dns=default
 ```
-This parameter inform `NetworkManager` that not necessary manage `/etc/resolv.conf`. After that: `sudo systemctl restart NetworkManager`. 
+This parameter inform `NetworkManager` that not necessary manage `/etc/resolv.conf`. After that: `sudo systemctl restart NetworkManager`.
 
 Edit`/etc/resolv.conf`:
 ```
@@ -74,16 +74,8 @@ Edit config DNS: `sudo nano /etc/docker/daemon.json`:
 ```
 After that: `sudo service docker restart`
 
-## Smartphone 
-1. Install [Connect for Pi-hole](https://play.google.com/store/apps/details?id=com.tien.piholeconnect&hl=ru). 
-1. Forwarding ports on router.   
-1. Scan QRCode. 
-
-
-# [Duck DNS](https://www.duckdns.org)
-![DuckDNS](https://www.duckdns.org/img/ducky_icon.png)
-1. Register on [https://www.duckdns.org](https://www.duckdns.org). 
-2. Set variables on [docker-compose.yml](./docker-compose.yml).
-
-Check IP: [https://digwebinterface.com](https://digwebinterface.com).
+## Smartphone
+1. Install [Connect for Pi-hole](https://play.google.com/store/apps/details?id=com.tien.piholeconnect&hl=ru).
+1. Forwarding ports on router.
+1. Scan QRCode.
 
