@@ -79,3 +79,9 @@ After that: `sudo service docker restart`
 1. Forwarding ports on router.
 1. Scan QRCode.
 
+# [Duck DNS](https://www.duckdns.org)
+![DuckDNS](https://www.duckdns.org/img/ducky_icon.png)
+1. Register on [https://www.duckdns.org](https://www.duckdns.org).
+2. Set variables on [docker-compose.yml](./docker-compose.yml).
+
+Check IP: [https://digwebinterface.com](https://digwebinterface.com).

@@ -18,3 +18,16 @@ services:
     cap_add:
       - NET_ADMIN
     restart: unless-stopped
+  duckdns:
+    image: lscr.io/linuxserver/duckdns:latest
+    container_name: duckdns
+    environment:
+      - PUID=1000 #optional
+      - PGID=1000 #optional
+      - TZ=Europe/Moscow
+      - SUBDOMAINS=${USER}
+      - TOKEN=${DNS_TOKEN}
+      - LOG_FILE=false l
+    volumes:
+      - ./config_dns/:/config/
+    restart: unless-stopped
