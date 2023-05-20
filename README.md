@@ -76,7 +76,7 @@ After that: `sudo service docker restart`
 1. Scan QRCode.
 
 ## Backup
-For backub use `dns_backup` and [dag airflow](https://github.com/VolokzhaninVadim/airflow/blob/main/dags/backup_s3.py).
+For backup use [dns_backup.sh](./dns_backup.sh) and [dag airflow](https://github.com/VolokzhaninVadim/airflow/blob/main/dags/backup_s3.py).
 
 # [Duck DNS](https://www.duckdns.org)
 ![DuckDNS](https://www.duckdns.org/img/ducky_icon.png)
