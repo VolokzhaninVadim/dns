@@ -12,7 +12,7 @@ tar --create \
     --ignore-failed-read \
     --preserve-permissions \
     --verbose \
-'.'
+'/home/volokzhanin/docker/dns/'
 
 # Create encrypted archive
 gpg --recipient $GPG_KEY \
