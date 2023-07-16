@@ -27,6 +27,7 @@ gpg  --recipient $GPG_KEY \
     --passphrase-file $GPG_PASSPHRASE \
     --no-tty \
     --encrypt $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE
+
 echo $(date '+%Y-%m-%d %H %M %S') 'Remove archive'
 rm $DIRECTORY_TARGET/$FILE'_'$PROJECT'_''.'$ARCHIVE_TYPE
 
