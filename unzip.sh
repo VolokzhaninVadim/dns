@@ -20,7 +20,7 @@ for i in *.tar.zst;
 do
 tar --preserve-permissions \
     --extract \
-    --gzip \
+    --zstd \
     --file "$i";
 
 rm $i;
