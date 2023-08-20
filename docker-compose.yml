@@ -8,16 +8,20 @@ services:
       - "53:53/tcp"
       - "53:53/udp"
       - "67:67/udp"
-      - "80:80/tcp"
+      - "280:80/tcp"
     environment:
       - TZ='Europe/Moscow'
       - WEBPASSWORD=${PIHOLE_PASSWORD}
+      - DHCP_ROUTER='192.168.0.1'
     volumes:
       - './config_pihole/etc-pihole/:/etc/pihole/'
       - './config_pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/'
     cap_add:
       - NET_ADMIN
     restart: unless-stopped
+    networks:
+      - default
+
   duckdns:
     image: lscr.io/linuxserver/duckdns:latest
     container_name: duckdns
@@ -31,3 +35,10 @@ services:
     volumes:
       - ./config_dns/:/config/
     restart: unless-stopped
+    networks:
+      - default
+
+networks:
+  default:
+    external: true
+    name: volokzhanin
