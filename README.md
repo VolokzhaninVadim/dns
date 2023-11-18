@@ -75,13 +75,13 @@ After that: `sudo service docker restart`
 1. Forwarding ports on router.
 1. Scan QRCode.
 
-## Backup
-For backup use [backup.sh](./backup.sh) and [unzip.sh](./unzip.sh).<br>
-[Yandex s3](https://cloud.yandex.ru/docs/storage/tools/s3fs).
-
 # [Duck DNS](https://www.duckdns.org)
 ![DuckDNS](https://www.duckdns.org/img/ducky_icon.png)
 1. Register on [https://www.duckdns.org](https://www.duckdns.org).
 2. Set variables on [docker-compose.yml](./docker-compose.yml).
 
 Check IP: [https://digwebinterface.com](https://digwebinterface.com).
+
+# Backup
+For backup use [backup-server](https://github.com/VolokzhaninVadim/duplicati).
+
