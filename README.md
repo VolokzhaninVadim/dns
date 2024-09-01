@@ -66,7 +66,3 @@ After that: `sudo service docker restart`
 2. Set variables on [docker-compose.yml](./docker-compose.yml).
 
 Check IP: [https://digwebinterface.com](https://digwebinterface.com).
-
-# Backup
-For backup use [backup-server](https://github.com/VolokzhaninVadim/duplicati).
-
