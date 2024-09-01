@@ -55,6 +55,8 @@ Edit config DNS: `sudo nano /etc/docker/daemon.json`:
 ```
 After that: `sudo service docker restart`
 
+Enter: 'ip:port/admin/'
+
 ## Smartphone
 1. Install [Connect for Pi-hole](https://play.google.com/store/apps/details?id=com.tien.piholeconnect&hl=ru).
 1. Forwarding ports on router.
