@@ -39,6 +39,9 @@ dns=default
 This parameter inform `NetworkManager` that not necessary manage `/etc/resolv.conf`. After that: `sudo systemctl restart NetworkManager`.
 
 Edit`/etc/resolv.conf`:
+```bash
+nameserver container_ip 
+```
 ```
 # Backup resolv.conf
 sudo mv /etc/resolv.conf /etc/resolv.conf.bak
