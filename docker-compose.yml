@@ -16,6 +16,7 @@ services:
       - './config_pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/'
     cap_add:
       - NET_ADMIN
+    env_file: ".env"
     restart: unless-stopped
     networks:
       - default
@@ -24,14 +25,15 @@ services:
     image: lscr.io/linuxserver/duckdns:latest
     container_name: duckdns
     environment:
-      - PUID=1000 #optional
-      - PGID=1000 #optional
+      - PUID=1000 
+      - PGID=1000 
       - TZ=Europe/Moscow
-      - SUBDOMAINS=${USER}
-      - TOKEN=${DNS_TOKEN}
-      - LOG_FILE=false l
+      - SUBDOMAINS=${SUBDOMAIN}
+      - TOKEN=${TOKEN}
+      - LOG_FILE=false
     volumes:
       - ./config_dns/:/config/
+    env_file: ".env"
     restart: unless-stopped
     networks:
       - default
