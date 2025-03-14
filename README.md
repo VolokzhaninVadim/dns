@@ -40,8 +40,11 @@ This parameter inform `NetworkManager` that not necessary manage `/etc/resolv.co
 
 Edit`/etc/resolv.conf`:
 ```bash
-nameserver container_ip 
+# Add
+nameserver ip-контейнера
 ```
+
+Execute:
 ```
 # Backup resolv.conf
 sudo mv /etc/resolv.conf /etc/resolv.conf.bak
