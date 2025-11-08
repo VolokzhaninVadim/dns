@@ -1,4 +1,13 @@
 services:
+  unbound:
+    container_name: unbound
+    image: mvance/unbound:latest
+    restart: unless-stopped
+    networks:
+      dns:
+        aliases:
+          - unbound
+
   pihole:
     container_name: pihole
     image: pihole/pihole:latest
@@ -11,6 +20,7 @@ services:
       - TZ='Europe/Moscow'
       - WEBPASSWORD=${PIHOLE_PASSWORD}
       - DHCP_ROUTER='192.168.0.1'
+      - DNS1='unbound'
     volumes:
       - './config_pihole/etc-pihole/:/etc/pihole/'
       - './config_pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/'
@@ -19,14 +29,16 @@ services:
     env_file: ".env"
     restart: unless-stopped
     networks:
-      - default
+      dns:
+    depends_on:
+      - unbound
 
   duckdns:
     image: lscr.io/linuxserver/duckdns:latest
     container_name: duckdns
     environment:
-      - PUID=1000 
-      - PGID=1000 
+      - PUID=1000
+      - PGID=1000
       - TZ=Europe/Moscow
       - SUBDOMAINS=${SUBDOMAIN}
       - TOKEN=${TOKEN}
@@ -36,9 +48,8 @@ services:
     env_file: ".env"
     restart: unless-stopped
     networks:
-      - default
+      dns:
 
 networks:
-  default:
+  dns:
     external: true
-    name: volokzhanin
