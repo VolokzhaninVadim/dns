@@ -1,3 +1,2 @@
-config_dns/*
-config_pihole/*
+config_*/*
 .env
