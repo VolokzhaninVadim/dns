@@ -3,10 +3,42 @@ services:
     container_name: unbound
     image: mvance/unbound:latest
     restart: unless-stopped
+    volumes:
+      - './config_unbound:/opt/unbound/etc/unbound/'
     networks:
       dns:
-        aliases:
-          - unbound
+
+  pihole-init:
+    image: pihole/pihole:latest
+    container_name: pihole_init
+    volumes:
+      - './config_pihole:/etc/pihole'
+    environment:
+      - TZ=Europe/Moscow
+      - FTLCONF_webserver_api_password=${PIHOLE_PASSWORD}
+      - FTLCONF_dns_listeningMode=ALL
+      - FTLCONF_dns_upstreams=8.8.8.8;1.1.1.1
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    command: >
+      sh -c "
+      if [ ! -f /etc/pihole/gravity.db ]; then
+        echo 'Создаём базу данных с публичными DNS...';
+        # Запускаем создание базы данных
+        pihole-FTL &
+        sleep 5
+        pihole updateGravity
+        sleep 30
+        pkill pihole-FTL
+        echo 'База создана!';
+      else
+        echo 'База уже существует, пропускаем инициализацию';
+      fi
+      "
+    restart: "no"  # Запускаем только один раз
+    networks:
+      dns:
 
   pihole:
     container_name: pihole
@@ -14,24 +46,25 @@ services:
     ports:
       - "53:53/tcp"
       - "53:53/udp"
-      - "67:67/udp"
       - "280:80/tcp"
     environment:
-      - TZ='Europe/Moscow'
-      - WEBPASSWORD=${PIHOLE_PASSWORD}
-      - DHCP_ROUTER='192.168.0.1'
-      - DNS1='unbound'
+      - TZ=Europe/Moscow
+      - FTLCONF_webserver_api_password=${PIHOLE_PASSWORD}
+      - FTLCONF_dns_listeningMode=ALL
+      - FTLCONF_dns_upstreams=unbound
     volumes:
-      - './config_pihole/etc-pihole/:/etc/pihole/'
-      - './config_pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/'
+      - './config_pihole:/etc/pihole/'
     cap_add:
       - NET_ADMIN
-    env_file: ".env"
+      - SYS_NICE
+    env_file:
+      - ".env"
     restart: unless-stopped
     networks:
       dns:
     depends_on:
       - unbound
+      - pihole-init
 
   duckdns:
     image: lscr.io/linuxserver/duckdns:latest
@@ -52,4 +85,4 @@ services:
 
 networks:
   dns:
-    external: true
+    driver: bridge
