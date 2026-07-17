@@ -18,6 +18,7 @@ services:
       - FTLCONF_webserver_api_password=${PIHOLE_PASSWORD}
       - FTLCONF_dns_listeningMode=ALL
       - FTLCONF_dns_upstreams=8.8.8.8;1.1.1.1
+      - FTLCONF_dns_upstreamTimeout=3000   # 3 секунды
     dns:
       - 8.8.8.8
       - 1.1.1.1
@@ -51,7 +52,7 @@ services:
       - TZ=Europe/Moscow
       - FTLCONF_webserver_api_password=${PIHOLE_PASSWORD}
       - FTLCONF_dns_listeningMode=ALL
-      - FTLCONF_dns_upstreams=unbound
+      - FTLCONF_dns_upstreams=unbound;8.8.8.8;1.1.1.1
     volumes:
       - './config_pihole:/etc/pihole/'
     cap_add:
